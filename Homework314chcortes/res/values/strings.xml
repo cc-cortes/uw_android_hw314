@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Homework 314</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="today_title">Today\'s Weather</string>
+    <string name="forecast_title">Three day Forecast</string>
+    <string name="location_title">"Location: "</string>
+    <string name="zipcode">98122</string>
+    <string name="zipcode_hint">Enter zipcode</string>
+    <string name="zipcode_error">Zipcode must be a 5 digit integer.</string>
+    <string name="get_forecast_button">Get Forecast</string>
+    <string name="connectivity_error">A connectivity error has occurred. Ensure you are connected to the internet and retry.</string>
+    <string name="data_provided_by">Weather data provided by</string>
+    <string name="weather_underground_underlined"><u>Weather Underground</u></string>
+    <string name="data_source_url">http://www.wunderground.com</string>
+    <string name="high_tag">High: </string>
+    <string name="low_tag">Low: </string>
+
+</resources>

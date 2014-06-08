@@ -1,0 +1,371 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.example.homework314chcortes.MainActivity">
+    
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal">
+    
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/location_title" />
+        
+        <EditText
+            android:id="@+id/zipcodeEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="@string/zipcode_hint"
+            android:inputType="number"
+            android:text="@string/zipcode" />
+        
+       <Button 
+           android:id="@+id/getWeatherDataButton"
+           android:layout_height="wrap_content"
+           android:layout_width="wrap_content"
+           android:onClick="getWeatherDataOnClick"
+           android:text="@string/get_forecast_button"/>
+        
+    </LinearLayout>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/today_title"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <ProgressBar
+        android:id="@+id/todayWeatherProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+</ProgressBar>
+    
+    <LinearLayout
+        android:id="@+id/todayWeatherLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal"
+        android:orientation="horizontal" >
+        
+        <TextView
+            android:id="@+id/today_date"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" 
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+        
+        <WebView
+            android:id="@+id/today_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp" ></WebView>
+
+        <TextView
+            android:id="@+id/today_conditions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/today_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" />
+        
+    </LinearLayout>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/forecast_title"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <ProgressBar
+        android:id="@+id/forecastWeatherProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+</ProgressBar>
+    
+    <LinearLayout
+        android:id="@+id/forecastWeatherLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <!-- Day One Forecast -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/day_one_date"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <WebView
+                android:id="@+id/day_one_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp" >
+            </WebView>
+
+            <TextView
+                android:id="@+id/day_one_conditions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/high_tag" />
+
+                    <TextView
+                        android:id="@+id/day_one_high_temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/low_tag" />
+
+                    <TextView
+                        android:id="@+id/day_one_low_temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Day Two Forecast -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/day_two_date"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <WebView
+                android:id="@+id/day_two_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp" >
+            </WebView>
+
+            <TextView
+                android:id="@+id/day_two_conditions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/high_tag" />
+
+                    <TextView
+                        android:id="@+id/day_two_high_temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/low_tag" />
+
+                    <TextView
+                        android:id="@+id/day_two_low_temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Day Three Forecast -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/day_three_date"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <WebView
+                android:id="@+id/day_three_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp" >
+            </WebView>
+
+            <TextView
+                android:id="@+id/day_three_conditions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/high_tag" />
+
+                    <TextView
+                        android:id="@+id/day_three_high_temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/low_tag" />
+
+                    <TextView
+                        android:id="@+id/day_three_low_temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="@string/data_provided_by" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:minHeight="0dp"
+            android:onClick="weatherSourceOnClick"
+            android:padding="1dp"
+            android:text="@string/weather_underground_underlined"
+            android:textColor="@color/hyperlink_blue" />
+
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>
+
